@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hello_flutter/container_page.dart';
 import 'package:hello_flutter/landing_page.dart';
 
 class MyApp extends StatelessWidget {
@@ -6,10 +8,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const myapp = MaterialApp(
+    final myapp = GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LandingPage(),
-      
+      initialRoute: '/',
+      home: const LandingPage(),
+      getPages: [
+        GetPage(name: '/', page: () => const ScreenContainer()),
+        GetPage(name: '/ScreenContainer', page: () => const ScreenContainer()),
+      ],
     );
 
     return myapp;

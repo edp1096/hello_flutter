@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hello_flutter/main_page.dart';
+import 'package:hello_flutter/container_page.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -12,6 +12,14 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(const Duration(seconds: 2), () {
+      Get.offAll(() => const ScreenContainer());
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -27,19 +35,19 @@ class _LandingPageState extends State<LandingPage> {
           Image.asset("assets/images/dog_portrait.jpg", fit: BoxFit.cover);
     }
 
-    var body = Stack(
-      alignment: Alignment.center,
-      children: [
-        Container(
-          color: Colors.amber,
-          width: width,
-          height: height,
-          child: splashImage,
-        ),
-        const CircularProgressIndicator(),
-      ],
+    return Scaffold(
+      body: Stack(
+        alignment: Alignment.center,
+        children: [
+          Container(
+            color: Colors.amber,
+            width: width,
+            height: height,
+            child: splashImage,
+          ),
+          const CircularProgressIndicator(),
+        ],
+      ),
     );
-
-    return Scaffold(body: body);
   }
 }
