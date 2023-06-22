@@ -41,7 +41,7 @@ class _ScreenContainerState extends State<ScreenContainer> {
 
   @override
   Widget build(BuildContext context) {
-    final appbar = AppBar(title: const Text('Main Page'));
+    // final appbar = AppBar(title: const Text('Main Page'));
 
     final botNavBar = BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
