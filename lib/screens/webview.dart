@@ -27,7 +27,8 @@ var controller = WebViewController()
       },
     ),
   )
-  ..loadRequest(Uri.parse('https://www.naver.com'));
+  // ..loadRequest(Uri.parse('https://www.naver.com'));
+  ..loadRequest(Uri.parse('http://127.0.0.1:2480/health'));
 
 class _WebViewScreenState extends State<WebViewScreen> {
   @override

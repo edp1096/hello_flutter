@@ -24,7 +24,7 @@ func StartServer() {
 		fmt.Fprintf(w, "It works! - %s", time.Now())
 	})
 
-	addr := "127.0.0.1:10080"
+	addr := "127.0.0.1:2480"
 
 	fmt.Printf("Listening on %s\n", addr)
 	http.ListenAndServe(addr, nil)
