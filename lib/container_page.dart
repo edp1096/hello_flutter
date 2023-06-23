@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hello_flutter/screens/home.dart';
-import 'package:hello_flutter/screens/favorite.dart';
+import 'package:hello_flutter/screens/camera.dart';
 import 'package:hello_flutter/screens/webview.dart';
 import 'package:hello_flutter/screens/mypage.dart';
 
@@ -23,8 +23,8 @@ class _ScreenContainerState extends State<ScreenContainer> {
       icon: Icon(Icons.web_stories),
     ),
     const BottomNavigationBarItem(
-      label: '즐겨찾기',
-      icon: Icon(Icons.favorite),
+      label: '사진기',
+      icon: Icon(Icons.camera_alt),
     ),
     const BottomNavigationBarItem(
       label: '내 페이지',
@@ -35,7 +35,7 @@ class _ScreenContainerState extends State<ScreenContainer> {
   List pages = [
     const HomeScreen(),
     const WebViewScreen(),
-    const FavoriteScreen(),
+    const CameraScreen(),
     const MyPageScreen(),
   ];
 
