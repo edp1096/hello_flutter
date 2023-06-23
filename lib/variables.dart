@@ -3,6 +3,8 @@ library mywebview;
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+const webviewURI = "http://127.0.0.1:2480/health";
+
 var controller = WebViewController()
   ..setJavaScriptMode(JavaScriptMode.unrestricted)
   ..setBackgroundColor(const Color(0x00000000))
@@ -22,4 +24,4 @@ var controller = WebViewController()
       },
     ),
   )
-  ..loadRequest(Uri.parse('http://127.0.0.1:2480/health'));
+  ..loadRequest(Uri.parse(webviewURI));
