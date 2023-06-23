@@ -3,6 +3,8 @@ library mywebview;
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+const webviewURI = "https://www.naver.com";
+
 var controller = WebViewController()
   ..setJavaScriptMode(JavaScriptMode.unrestricted)
   ..setBackgroundColor(const Color(0x00000000))
@@ -22,4 +24,4 @@ var controller = WebViewController()
       },
     ),
   )
-  ..loadRequest(Uri.parse('https://www.naver.com'));
+  ..loadRequest(Uri.parse(webviewURI));
