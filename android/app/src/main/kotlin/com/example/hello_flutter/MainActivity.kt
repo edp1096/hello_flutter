@@ -8,8 +8,19 @@ import server.Server
 class MainActivity: FlutterActivity() {
     private var serverThread: Thread? = null
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        if (serverThread == null) {
+            serverThread = thread{
+                Server.startServer()
+            }
+        }
+    }
+
     override fun onStart() {
         super.onStart()
+
         if (serverThread == null) {
             serverThread = thread{
                 Server.startServer()
@@ -19,6 +30,7 @@ class MainActivity: FlutterActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+
         if (serverThread != null) {
             serverThread?.interrupt()
         }
