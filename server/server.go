@@ -12,14 +12,14 @@ func StartServer() {
 	})
 
 	content := `
-	<html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	</head>
-	<body>
-		Hello client!
-	</body>
-	</html>`
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+	Hello client!
+</body>
+</html>`
 	http.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, content)
 	})
@@ -28,8 +28,5 @@ func StartServer() {
 	addr := "127.0.0.1:2480"
 
 	fmt.Printf("Listening on %s\n", addr)
-
-	go func() {
-		http.ListenAndServe(addr, nil)
-	}()
+	http.ListenAndServe(addr, nil)
 }
