@@ -1,6 +1,6 @@
 go 1.21
 
 use (
-	./server
-	.\server\cmd
+	./go_server
+	./go_server/cmd
 )
