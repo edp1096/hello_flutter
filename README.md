@@ -15,8 +15,8 @@ Source: https://100sucoding.tistory.com/20?category=945334
 * aar 생성
 ```powershell
 # MY - $env:path+=";D:\dev\my-flutter-set\openjdk\bin"
-cd server
-go get golang.org/x/mobile/bind
+cd go_server
+gomobile init
 gomobile bind -v -o ../flutter_client/android/app/libs/server.aar -target=android .
 ```
 
