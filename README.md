@@ -20,6 +20,12 @@ gomobile init
 gomobile bind -v -o ../flutter_client/android/app/libs/server.aar -target=android .
 ```
 
+* dll 생성
+```powershell
+cd go_server
+go build -o server.dll -buildmode=c-shared ./cmd
+```
+
 * android/build.gradle
     * https://stackoverflow.com/a/65114198/8964990
     * https://github.com/kateile/android-app-with-golang/blob/main/client/app/build.gradle
