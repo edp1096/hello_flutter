@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:hello_flutter/screens/home.dart';
-import 'package:hello_flutter/screens/favorite.dart';
-import 'package:hello_flutter/screens/webview.dart';
-import 'package:hello_flutter/screens/mypage.dart';
+import 'screens/home.dart';
+import 'screens/favorite.dart';
+import 'screens/mypage.dart';
+import 'screens/webview.dart'
+    if (dart.library.io) 'screens/webview_windows.dart';
+// if (dart.library.html) 'screens/webview_windows.dart';
+// import 'screens/webview_windows.dart';
 
 class ScreenContainer extends StatefulWidget {
   const ScreenContainer({Key? key}) : super(key: key);

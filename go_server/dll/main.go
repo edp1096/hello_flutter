@@ -1,4 +1,4 @@
-package main // import "go-server"
+package main // import "libserver"
 
 import "C"
 

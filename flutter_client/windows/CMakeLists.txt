@@ -52,6 +52,15 @@ add_subdirectory(${FLUTTER_MANAGED_DIR})
 # Application build; see runner/CMakeLists.txt.
 add_subdirectory("runner")
 
+# Add libserver.dll
+add_library(libserver SHARED IMPORTED)
+set_target_properties(libserver PROPERTIES
+    IMPORTED_LOCATION "${CMAKE_CURRENT_SOURCE_DIR}/libserver.dll"
+    IMPORTED_IMPLIB "${CMAKE_CURRENT_SOURCE_DIR}/libserver.a"
+)
+
+# Link libserver.dll to BINARY_NAME target
+target_link_libraries(${BINARY_NAME} PRIVATE libserver)
 
 # Generated plugin build rules, which manage building the plugins and adding
 # them to the application.
@@ -105,4 +114,9 @@ install(DIRECTORY "${PROJECT_BUILD_DIR}/${FLUTTER_ASSET_DIR_NAME}"
 # Install the AOT library on non-Debug builds only.
 install(FILES "${AOT_LIBRARY}" DESTINATION "${INSTALL_BUNDLE_DATA_DIR}"
   CONFIGURATIONS Profile;Release
+  COMPONENT Runtime)
+
+# Copy libserver.dll
+install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/libserver.dll"
+  DESTINATION "${CMAKE_INSTALL_PREFIX}"
   COMPONENT Runtime)

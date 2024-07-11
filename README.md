@@ -23,7 +23,8 @@ gomobile bind -v -o ../flutter_client/android/app/libs/server.aar -target=androi
 * dll 생성
 ```powershell
 cd go_server
-go build -o server.dll -buildmode=c-shared -ldflags="-w -s" ./dll
+go build -buildmode=c-shared -o ../flutter_client/windows/libserver.dll ./dll
+dlltool --dllname ../flutter_client/windows/libserver.dll --output-lib ../flutter_client/windows/libserver.a
 ```
 
 * android/build.gradle

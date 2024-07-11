@@ -18,14 +18,16 @@ func StartServer() {
 </head>
 <body>
 	Hello client!
+
+	<button onclick="alert('world!!')">Hello</button>
 </body>
 </html>`
 	http.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, content)
 	})
 
-	// addr := ":2480"
-	addr := "127.0.0.1:2480"
+	// addr := ":12480"
+	addr := "127.0.0.1:12480"
 
 	fmt.Printf("Listening on %s\n", addr)
 	http.ListenAndServe(addr, nil)
