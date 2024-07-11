@@ -10,7 +10,17 @@ Source: https://100sucoding.tistory.com/20?category=945334
         * https://dev-yakuza.posstree.com/ko/flutter/webview_flutter
         * https://endless-learn-code.tistory.com/11
 
+
+## Golang
+
 * Gomobile 설치 - https://go.dev/wiki/Mobile
+
+* Web용 실행파일 생성
+```powershell
+cd go_server
+go build -ldflags="-H windowsgui -w -s" ./cmd
+# Browser -> http://localhost:12480/hello
+```
 
 * aar 생성
 ```powershell
@@ -26,6 +36,9 @@ cd go_server
 go build -buildmode=c-shared -o ../flutter_client/windows/libserver.dll ./dll
 dlltool --dllname ../flutter_client/windows/libserver.dll --output-lib ../flutter_client/windows/libserver.a
 ```
+
+
+## Flutter
 
 * flutter 빌드 - windows
 ```powershell
@@ -46,3 +59,13 @@ flutter build apk --release --target-platform=android-arm64
 
 * kt
     * https://github.com/kateile/android-app-with-golang/blob/main/client/app/src/main/java/com/kateile/futa/FirstFragment.kt
+
+
+* 아이콘 출처
+    * 이미지
+        * https://www.flaticon.com/free-icon/dummy_5808188
+        * https://www.flaticon.com/free-icon/money_1756530
+        * https://www.flaticon.com/free-icon/money_617099
+    * 생성기
+        * https://www.appicon.co
+        * https://www.png2ico.com

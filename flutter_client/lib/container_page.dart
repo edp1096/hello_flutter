@@ -1,4 +1,5 @@
 import 'dart:io' show Platform;
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'screens/home.dart';
 import 'screens/favorite.dart';
@@ -56,7 +57,11 @@ class _ScreenContainerState extends State<ScreenContainer> {
       case "macos":
       case "linux":
       default:
-        throw UnsupportedError('This platform is not supported.');
+        if (kIsWeb) {
+          // running on the web
+        } else {
+          throw UnsupportedError('This platform is not supported.');
+        }
     }
 
     final botNavBar = BottomNavigationBar(
