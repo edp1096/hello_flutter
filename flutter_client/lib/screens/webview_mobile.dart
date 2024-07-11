@@ -9,7 +9,7 @@ Future<dynamic> checkHealth() async {
   debugPrint(response.body);
 }
 
-var controller = WebViewController()
+final controller = WebViewController()
   ..setJavaScriptMode(JavaScriptMode.unrestricted)
   ..setBackgroundColor(const Color(0x00000000))
   ..setNavigationDelegate(

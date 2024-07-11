@@ -5,7 +5,8 @@ import 'screens/home.dart';
 import 'screens/favorite.dart';
 import 'screens/mypage.dart';
 import 'screens/webview_mobile.dart';
-import 'screens/webview_windows.dart';
+import 'screens/webview_web.dart'
+    if (dart.library.io) 'screens/webview_windows.dart';
 
 class ScreenContainer extends StatefulWidget {
   const ScreenContainer({super.key});
@@ -46,22 +47,23 @@ class _ScreenContainerState extends State<ScreenContainer> {
   Widget build(BuildContext context) {
     // final appbar = AppBar(title: const Text('Main Page'));
 
-    switch (Platform.operatingSystem) {
-      case "android":
-      case "ios":
-        pages[1] = const WebViewScreenMobile();
-        break;
-      case "windows":
-        pages[1] = const WebViewScreenWindows();
-        break;
-      case "macos":
-      case "linux":
-      default:
-        if (kIsWeb) {
-          // running on the web
-        } else {
+    debugPrint(kIsWeb.toString());
+    if (kIsWeb) {
+      pages[1] = const WebViewScreenWeb();
+    } else {
+      switch (Platform.operatingSystem) {
+        case "android":
+        case "ios":
+          pages[1] = const WebViewScreenMobile();
+          break;
+        case "windows":
+          pages[1] = const WebViewScreenWindows();
+          break;
+        case "macos":
+        case "linux":
+        default:
           throw UnsupportedError('This platform is not supported.');
-        }
+      }
     }
 
     final botNavBar = BottomNavigationBar(

@@ -34,6 +34,7 @@ class _WebViewScreenWindowsState extends State<WebViewScreenWindows> {
       Directory(Platform.resolvedExecutable).parent.path,
       'libserver.dll',
     );
+
     ffi.DynamicLibrary.open(libraryPath);
 
     await _controller.initialize();

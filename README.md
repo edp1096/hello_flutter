@@ -69,3 +69,4 @@ flutter build apk --release --target-platform=android-arm64
     * 생성기
         * https://www.appicon.co
         * https://www.png2ico.com
+        * https://www.iloveimg.com/resize-image/resize-png
