@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hello_flutter/utils/notification.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
