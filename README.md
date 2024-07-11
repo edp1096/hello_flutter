@@ -10,7 +10,7 @@ Source: https://100sucoding.tistory.com/20?category=945334
         * https://dev-yakuza.posstree.com/ko/flutter/webview_flutter
         * https://endless-learn-code.tistory.com/11
 
-* Gomobile 설치 - https://github.com/golang/go/wiki/Mobile
+* Gomobile 설치 - https://go.dev/wiki/Mobile
 
 * aar 생성
 ```powershell
@@ -25,6 +25,19 @@ gomobile bind -v -o ../flutter_client/android/app/libs/server.aar -target=androi
 cd go_server
 go build -buildmode=c-shared -o ../flutter_client/windows/libserver.dll ./dll
 dlltool --dllname ../flutter_client/windows/libserver.dll --output-lib ../flutter_client/windows/libserver.a
+```
+
+* flutter 빌드 - windows
+```powershell
+cd flutter_client
+# flutter run -d windows
+flutter build windows
+```
+
+* flutter 빌드 - android
+```powershell
+cd flutter_client
+flutter build apk --release --target-platform=android-arm64
 ```
 
 * android/build.gradle

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MyPageScreen extends StatefulWidget {
-  const MyPageScreen({Key? key}) : super(key: key);
+  const MyPageScreen({super.key});
 
   @override
   State<MyPageScreen> createState() => _MyPageScreenState();

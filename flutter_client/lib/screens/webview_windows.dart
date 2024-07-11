@@ -12,14 +12,14 @@ Future<dynamic> checkHealth() async {
   debugPrint(response.body);
 }
 
-class WebViewScreen extends StatefulWidget {
-  const WebViewScreen({Key? key}) : super(key: key);
+class WebViewScreenWindows extends StatefulWidget {
+  const WebViewScreenWindows({super.key});
 
   @override
-  State<WebViewScreen> createState() => _WebViewScreenState();
+  State<WebViewScreenWindows> createState() => _WebViewScreenWindowsState();
 }
 
-class _WebViewScreenState extends State<WebViewScreen> {
+class _WebViewScreenWindowsState extends State<WebViewScreenWindows> {
   final _controller = WebviewController();
   bool _isWebViewCreated = false;
 

@@ -28,14 +28,14 @@ var controller = WebViewController()
   )
   ..loadRequest(Uri.parse(webviewURI));
 
-class WebViewScreen extends StatefulWidget {
-  const WebViewScreen({Key? key}) : super(key: key);
+class WebViewScreenMobile extends StatefulWidget {
+  const WebViewScreenMobile({super.key});
 
   @override
-  State<WebViewScreen> createState() => _WebViewScreenState();
+  State<WebViewScreenMobile> createState() => _WebViewScreenMobileState();
 }
 
-class _WebViewScreenState extends State<WebViewScreen> {
+class _WebViewScreenMobileState extends State<WebViewScreenMobile> {
   @override
   Widget build(BuildContext context) {
     checkHealth();

@@ -1,14 +1,13 @@
+import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'screens/home.dart';
 import 'screens/favorite.dart';
 import 'screens/mypage.dart';
-import 'screens/webview.dart'
-    if (dart.library.io) 'screens/webview_windows.dart';
-// if (dart.library.html) 'screens/webview_windows.dart';
-// import 'screens/webview_windows.dart';
+import 'screens/webview_mobile.dart';
+import 'screens/webview_windows.dart';
 
 class ScreenContainer extends StatefulWidget {
-  const ScreenContainer({Key? key}) : super(key: key);
+  const ScreenContainer({super.key});
 
   @override
   State<ScreenContainer> createState() => _ScreenContainerState();
@@ -37,7 +36,7 @@ class _ScreenContainerState extends State<ScreenContainer> {
 
   List pages = [
     const HomeScreen(),
-    const WebViewScreen(),
+    null,
     const FavoriteScreen(),
     const MyPageScreen(),
   ];
@@ -45,6 +44,20 @@ class _ScreenContainerState extends State<ScreenContainer> {
   @override
   Widget build(BuildContext context) {
     // final appbar = AppBar(title: const Text('Main Page'));
+
+    switch (Platform.operatingSystem) {
+      case "android":
+      case "ios":
+        pages[1] = const WebViewScreenMobile();
+        break;
+      case "windows":
+        pages[1] = const WebViewScreenWindows();
+        break;
+      case "macos":
+      case "linux":
+      default:
+        throw UnsupportedError('This platform is not supported.');
+    }
 
     final botNavBar = BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
