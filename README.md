@@ -62,11 +62,12 @@ flutter build apk --release --target-platform=android-arm64
 
 
 ## 아이콘
-    * 이미지
-        * https://www.flaticon.com/free-icon/dummy_5808188
-        * https://www.flaticon.com/free-icon/money_1756530
-        * https://www.flaticon.com/free-icon/money_617099
-    * 생성기
-        * https://www.appicon.co
-        * https://www.png2ico.com
-        * https://www.iloveimg.com/resize-image/resize-png
+
+* 이미지
+    * https://www.flaticon.com/free-icon/dummy_5808188
+    * https://www.flaticon.com/free-icon/money_1756530
+    * https://www.flaticon.com/free-icon/money_617099
+* 생성기
+    * https://www.appicon.co
+    * https://www.png2ico.com
+    * https://www.iloveimg.com/resize-image/resize-png
