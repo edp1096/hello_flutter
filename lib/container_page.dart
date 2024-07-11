@@ -5,7 +5,7 @@ import 'package:hello_flutter/screens/webview.dart';
 import 'package:hello_flutter/screens/mypage.dart';
 
 class ScreenContainer extends StatefulWidget {
-  const ScreenContainer({Key? key}) : super(key: key);
+  const ScreenContainer({super.key});
 
   @override
   State<ScreenContainer> createState() => _ScreenContainerState();
