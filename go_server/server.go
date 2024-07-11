@@ -17,11 +17,7 @@ func StartServer() {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-	<p>Hello client!</p>
-
-	<button onclick="alert('Hello world!')">
-		Greeting
-	</button>
+	Hello client!
 </body>
 </html>`
 	http.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
