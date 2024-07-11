@@ -61,7 +61,7 @@ flutter build apk --release --target-platform=android-arm64
     * https://github.com/kateile/android-app-with-golang/blob/main/client/app/src/main/java/com/kateile/futa/FirstFragment.kt
 
 
-* 아이콘 출처
+## 아이콘
     * 이미지
         * https://www.flaticon.com/free-icon/dummy_5808188
         * https://www.flaticon.com/free-icon/money_1756530
