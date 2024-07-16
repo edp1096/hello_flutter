@@ -12,6 +12,22 @@ Future<dynamic> checkHealth() async {
   debugPrint(response.body);
 }
 
+/* Dummy for prevent error */
+class WebViewScreenWeb extends StatefulWidget {
+  const WebViewScreenWeb({super.key});
+
+  @override
+  State<WebViewScreenWeb> createState() => _WebViewScreenWebState();
+}
+
+/* Dummy for prevent error */
+class _WebViewScreenWebState extends State<WebViewScreenWeb> {
+  @override
+  Widget build(BuildContext context) {
+    throw UnimplementedError();
+  }
+}
+
 class WebViewScreenWindows extends StatefulWidget {
   const WebViewScreenWindows({super.key});
 
