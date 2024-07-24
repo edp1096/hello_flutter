@@ -27,6 +27,7 @@ go build -ldflags="-H windowsgui -w -s" ./cmd
 # MY - $env:path+=";D:\dev\my-flutter-set\openjdk\bin"
 cd go_server
 gomobile init
+go get -u golang.org/x/mobile/bind
 gomobile bind -v -o ../flutter_client/android/app/libs/server.aar -target=android .
 ```
 
