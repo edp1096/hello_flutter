@@ -3,14 +3,8 @@ import 'dart:io' show Platform, Directory;
 import 'package:flutter/material.dart';
 import 'package:webview_windows/webview_windows.dart';
 import 'package:hello_flutter/variables.dart';
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
 import 'package:path/path.dart' as path;
-
-Future<dynamic> checkHealth() async {
-  final request = Uri.parse("http://127.0.0.1:12480/health");
-  final response = await http.get(request);
-  debugPrint(response.body);
-}
 
 /* Dummy for prevent error */
 class WebViewScreenWeb extends StatefulWidget {
@@ -56,7 +50,7 @@ class _WebViewScreenWindowsState extends State<WebViewScreenWindows> {
     await _controller.initialize();
     await _controller.setBackgroundColor(Colors.transparent);
     await _controller.setPopupWindowPolicy(WebviewPopupWindowPolicy.deny);
-    await _controller.loadUrl(webviewURI);
+    await _controller.loadUrl('$serverURI/hello');
 
     if (!mounted) {
       return;
@@ -68,7 +62,6 @@ class _WebViewScreenWindowsState extends State<WebViewScreenWindows> {
 
   @override
   Widget build(BuildContext context) {
-    checkHealth();
     return Expanded(
       child: _isWebViewCreated
           ? Webview(_controller)

@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
+// import 'dart:async';
 import 'package:webview_flutter_web/webview_flutter_web.dart';
 import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart';
 import 'package:hello_flutter/variables.dart';
-import 'package:http/http.dart' as http;
-
-Future<dynamic> checkHealth() async {
-  final request = Uri.parse("http://127.0.0.1:12480/health");
-  final response = await http.get(request);
-  debugPrint(response.body);
-}
+// import 'package:http/http.dart' as http;
 
 /* Dummy for prevent error */
 class WebViewScreenWindows extends StatefulWidget {
@@ -47,8 +41,7 @@ class _WebViewScreenWebState extends State<WebViewScreenWeb> {
 
   @override
   Widget build(BuildContext context) {
-    checkHealth();
-    _controller.loadRequest(LoadRequestParams(uri: Uri.parse(webviewURI)));
+    _controller.loadRequest(LoadRequestParams(uri: Uri.parse(serverURI)));
 
     return Expanded(
       child: PlatformWebViewWidget(
