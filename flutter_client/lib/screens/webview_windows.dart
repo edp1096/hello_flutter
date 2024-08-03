@@ -1,9 +1,11 @@
 import 'dart:ffi' as ffi;
 import 'dart:io' show Platform, Directory;
 import 'package:flutter/material.dart';
-import 'package:webview_windows/webview_windows.dart';
+
+import 'package:webview_flutter/webview_flutter.dart';
+import 'package:webview_win_floating/webview_win_floating.dart';
+
 import 'package:hello_flutter/variables.dart';
-// import 'package:http/http.dart' as http;
 import 'package:path/path.dart' as path;
 
 /* Dummy for prevent error */
@@ -30,16 +32,12 @@ class WebViewScreenWindows extends StatefulWidget {
 }
 
 class _WebViewScreenWindowsState extends State<WebViewScreenWindows> {
-  final _controller = WebviewController();
-  bool _isWebViewCreated = false;
+  final controller = WinWebViewController();
 
   @override
   void initState() {
     super.initState();
-    initPlatformState();
-  }
 
-  Future<void> initPlatformState() async {
     final String libraryPath = path.join(
       Directory(Platform.resolvedExecutable).parent.path,
       'libserver.dll',
@@ -47,31 +45,28 @@ class _WebViewScreenWindowsState extends State<WebViewScreenWindows> {
 
     ffi.DynamicLibrary.open(libraryPath);
 
-    await _controller.initialize();
-    await _controller.setBackgroundColor(Colors.transparent);
-    await _controller.setPopupWindowPolicy(WebviewPopupWindowPolicy.deny);
-    await _controller.loadUrl('$serverURI/hello');
-
-    if (!mounted) {
-      return;
-    }
-    setState(() {
-      _isWebViewCreated = true;
-    });
+    controller.setJavaScriptMode(JavaScriptMode.unrestricted);
+    controller.setNavigationDelegate(WinNavigationDelegate(
+      onNavigationRequest: (request) {
+        if (request.url.startsWith("$serverURI/hello")) {
+          return NavigationDecision.navigate;
+        } else {
+          debugPrint("prevent user navigate out of google website!");
+          return NavigationDecision.prevent;
+        }
+      },
+      onPageStarted: (url) => debugPrint("onPageStarted: $url"),
+      onPageFinished: (url) => debugPrint("onPageFinished: $url"),
+      onWebResourceError: (error) =>
+          debugPrint("onWebResourceError: ${error.description}"),
+    ));
+    controller.loadRequest(Uri.parse("$serverURI/hello"));
   }
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: _isWebViewCreated
-          ? Webview(_controller)
-          : const Center(child: CircularProgressIndicator()),
+      child: WinWebViewWidget(controller: controller),
     );
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
   }
 }
