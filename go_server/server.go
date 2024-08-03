@@ -96,6 +96,25 @@ func StartServer() {
 	<button onclick="save()">Save</button>
 	<button onclick="load()">Load</button>
 	<button onclick="list()">List</button>
+
+	<br>
+
+	<input name="anything" list="anythings">
+	<datalist id="anythings">
+		<option value="1st"></option>
+		<option value="2nd"></option>
+		<option value="3rd"></option>
+		<option value="4th"></option>
+		<option value="5th"></option>
+	</datalist>
+
+	<select name="numbers">
+		<option value="1">1st</option>
+		<option value="2">2nd</option>
+		<option value="3">3rd</option>
+		<option value="4">4th</option>
+		<option value="5">5th</option>
+	</select>
 </body>
 
 <script>
